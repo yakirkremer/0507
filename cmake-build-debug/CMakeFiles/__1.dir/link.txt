@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/__1.dir/maina1.cpp.o CMakeFiles/__1.dir/StreamingDBa1.cpp.o CMakeFiles/__1.dir/main.cpp.o -o __1 

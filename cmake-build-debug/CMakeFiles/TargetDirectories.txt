@@ -1,0 +1,3 @@
+/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/cmake-build-debug/CMakeFiles/__1.dir
+/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
