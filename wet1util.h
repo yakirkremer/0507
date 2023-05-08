@@ -17,7 +17,6 @@
 
 #include <stdexcept>
 
-
 // StatusType
 enum struct StatusType {
 	SUCCESS          = 0,

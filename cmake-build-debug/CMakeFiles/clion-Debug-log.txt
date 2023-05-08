@@ -1,4 +1,4 @@
-C:\WINDOWS\system32\wsl.exe --distribution Ubuntu --exec /bin/bash -c "export CMAKE_COLOR_DIAGNOSTICS=ON && export CLION_IDE=TRUE && export JETBRAINS_IDE=TRUE && cd '/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/cmake-build-debug' && /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G 'CodeBlocks - Unix Makefiles' -S '/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1' -B '/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/cmake-build-debug'"
+"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S "C:\Users\yakir\Documents\Technion HW\Matam\HWS\0507" -B "C:\Users\yakir\Documents\Technion HW\Matam\HWS\0507\cmake-build-debug"
 -- Configuring done
 -- Generating done
--- Build files have been written to: /mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/cmake-build-debug
+-- Build files have been written to: C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug

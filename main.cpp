@@ -13,7 +13,7 @@ using namespace std;
 
 
 
-int main(){
+int main1(){
 streaming_database* base = new streaming_database();
 
     for (int i = 1; i < 11; ++i) {

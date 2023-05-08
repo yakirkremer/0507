@@ -10,20 +10,31 @@
 class Comperator{
 protected:
     int Id;
-public:
     bool vip;
-    Comperator(int Id,bool vip = false):Id(Id),vip(vip){}
+
+public:
+    Comperator():Id(0),vip(false){}
+    virtual ~Comperator()=default;
+
+    Comperator(int Id,bool vip = false){
+        this->Id = Id;
+        this->vip = vip;
+    }
+    bool isVip(){
+        return vip;
+    }
+
     bool operator!(){
         if(Id <= 0)
             return false;
         return true;
     }
-    bool operator<(Comperator& other)
+    bool operator<(const Comperator& other)
     {
         return this->Id < other.Id;
     }
 
-    bool operator==(Comperator& other)
+    bool operator==(const Comperator& other)
     {
         return this->Id == other.Id;
     }
@@ -39,6 +50,7 @@ public:
     friend std::ostream & operator<<(std::ostream & os,Comperator& cmp){
         cmp.print(os);
     }
+    Comperator(const Comperator& other):Id(other.Id),vip(other.vip){}
 };
 
 
@@ -49,7 +61,12 @@ class MovieComperator:public Comperator{
     int rating;
     int views;
 public:
-    MovieComperator(int Id,bool vip, int views): Comperator(Id,vip),rating(0),views(views){}
+    MovieComperator(int Id,bool vip, int views): Comperator(Id,vip){
+        this->views = views;
+        this->rating = 0;
+
+    }
+    virtual ~MovieComperator()= default;
     int getRating(){
         return rating;
     }
@@ -64,7 +81,7 @@ public:
         }
         return this->rating > other.rating;
     }
-    bool operator==(MovieComperator& other){
+    bool operator==(MovieComperator other){
         return ((this->rating == other.rating) && (this->views == other.views) && (this->Id == other.Id));
     }
     void addViews(int newViews){
@@ -80,8 +97,9 @@ public:
         os<<rating<< "   "<< views << "    " << Id <<"\n";
     }
 
-
-
+    MovieComperator (const MovieComperator& other)= default;// Comperator(other),rating(other.rating),views(other.views){}
+    MovieComperator& operator=(const MovieComperator& other) = default;
+    MovieComperator():Comperator(),rating(0),views(0){}
 
 
 };

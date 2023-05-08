@@ -1,1 +1,3 @@
-/usr/bin/c++ -g CMakeFiles/__1.dir/maina1.cpp.o CMakeFiles/__1.dir/StreamingDBa1.cpp.o CMakeFiles/__1.dir/main.cpp.o -o __1 
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\__1.dir/objects.a
+C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\ar.exe qc CMakeFiles\__1.dir/objects.a @CMakeFiles\__1.dir\objects1.rsp
+C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE -g -Wl,--whole-archive CMakeFiles\__1.dir/objects.a -Wl,--no-whole-archive -o __1.exe -Wl,--out-implib,lib__1.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\__1.dir\linklibs.rsp

@@ -1,19 +1,24 @@
 //
-// Created by yakir on 5/5/2023.
+// Created by yakir on 5/8/2023.
 //
 
-#ifndef תרגיל_רטוב_1_AVLTREE_H
-#define תרגיל_רטוב_1_AVLTREE_H
+#ifndef __1_AVLTREENEW_H
+#define __1_AVLTREENEW_H
+
 #include <iostream>
 #include <iomanip>
 
 
+class NoNodeExist:public std::exception{};
+class alreadyExists:public std::exception{};
+class EmptyTree:public std::exception{};
+
 template <class type, class cmp>
-class AvlTree{
+class AvlTreeNew{
 protected:
     struct Node{
         type data;
-        cmp* key;
+        //cmp* key;
         Node* right;
         Node* left;
         int height;
@@ -29,19 +34,14 @@ protected:
             return b;
         }
 
-
-
-
-
-
-        Node(type data, cmp* key) : data(data), key(key), right(nullptr), left(nullptr), height(0) {}
-        Node(type data):data(data), key(nullptr), right(nullptr), left(nullptr), height(0) {}
-        bool operator<(Node* other){
-            return *(this->key) < *(other->key);
-        }
-        bool operator==(Node *other) {
-            return this->key == other->key;
-        }
+        //Node(type data) : data(data), right(nullptr), left(nullptr), height(0) {}
+        Node(type data):data(data), right(nullptr), left(nullptr), height(0) {}
+       // bool operator<(Node* other){
+         //   return *(this->data) < *(other->key);
+        //}
+       // bool operator==(Node *other) {
+           // return this->key == other->key;
+       // }
         void updateHeight(){
             int rHeight = -1, lHeight = -1;
             if(right != nullptr)
@@ -76,7 +76,8 @@ protected:
         cur->right = other->right;
         cur->left  = other->left;
         cur->data = other->data;
-        cur->key = other->key;
+        //
+        // cur->key = other->key;
         cur->height = other->height;
         other->left = nullptr;
         other->right = nullptr;
@@ -147,16 +148,19 @@ protected:
 
 
 public:
+    virtual cmp getKey(type dat)const=0;
+
+    /*
     type operator[](cmp curKey){
         cmp* cmpPtr = new cmp(curKey);
         return getData(curKey);
-    }
+    }*/
 
     Node * getHead(){
         return head;
     }
-    AvlTree():head(nullptr),size(0){}
-    virtual ~AvlTree() {
+    AvlTreeNew():head(nullptr),size(0){}
+    virtual ~AvlTreeNew() {
         delete head;
     }
 
@@ -174,20 +178,18 @@ public:
 
     }
     void putDataInOrder(type * datas){
+        if(head == nullptr || size == 0)
+            throw EmptyTree();
         int * i =new int(0);
         putDataInOrderAux(datas,head,i);
         delete i;
     }
-    type getData(cmp* keyToFInd){
+    /*type getData(cmp* keyToFInd){
         type res = find(head,keyToFInd)->data;
         return res; //find(head,keyToFInd)->data;
-    }
+    }*/
 
-    bool nodeExist(cmp * tmpKey){
-        if(find(head,tmpKey) == nullptr)
-            return false;
-        return true;
-    }
+
 
     void postorder(Node *p, int indent) {
         if (p != NULL) {
@@ -198,7 +200,7 @@ public:
                 std::cout << std::setw(indent) << ' ';
             }
             if (p->right) std::cout << " /\n" << std::setw(indent) << ' ';
-            std::cout << *(p->key) << "\n ";
+            //std::cout << *(p->data) << "\n ";
             if (p->left) {
                 std::cout << std::setw(indent) << ' ' << " \\\n";
                 postorder(p->left, indent + 4);
@@ -206,19 +208,117 @@ public:
         }
     }
 
-    type highest(Node* cur){
-        if(cur->right == nullptr)
-            return cur->data;
-        return highest(cur->right);
-    }
 
-    type updateHighest(){
-        if(head != nullptr)
-            return highest(head);
-    }
 
     ////////////////////////////***** WITH COMPARSIONS
 private:
+
+    virtual bool ifSmaller( cmp a , cmp b)const = 0;
+
+
+
+    virtual bool ifSmaller( type a , cmp b)const=0;
+
+    virtual bool ifSmaller( type a , type b)const=0;
+
+    virtual bool ifSmaller( cmp a , type b)const=0;
+    virtual bool ifIs( cmp a , cmp b)const=0;
+
+    virtual bool ifIs( type a , cmp b)const=0;
+
+    virtual bool ifIs( cmp a ,type b)const=0;
+    virtual Node * find(Node* cur,cmp tmpKey){
+        if(cur == nullptr)
+            throw NoNodeExist();
+        if(ifIs(cur->data,tmpKey))//if(tmpKey == (cur->data->getCmp()))
+            return cur;
+        if(cur->right == nullptr && cur->left == nullptr)
+            throw NoNodeExist();
+        if(!ifSmaller( cur->data,tmpKey))//if(tmpKey < (cur->data->getCmp()))
+            return find(cur->left,tmpKey);
+        else
+            return find(cur->right,tmpKey);
+    }
+public:
+    type getData(cmp keyToFInd){
+        try
+        {
+            type res = find(head, keyToFInd)->data;
+            return res; //find(head,keyToFInd)->data;
+        }
+        catch (...)
+        {
+            throw NoNodeExist();
+        }
+    }
+    virtual bool nodeExist(cmp tmpyKey){
+        try{
+            find(head,tmpyKey);
+        }
+        catch (...){
+            return false;
+        }
+    }
+    virtual Node* addNode(Node* cur,Node* newNode){
+
+        if(cur == nullptr) {
+            cur = newNode;
+            return cur;
+        }
+
+        if(cur->data == newNode->data)
+            throw alreadyExists();
+
+        if(ifSmaller(newNode->data, cur->data))
+            cur->setLeft(addNode(cur->left, newNode));
+        else
+            cur->setRight(addNode(cur->right, newNode));
+
+        cur->updateHeight();
+        return fixBalance(cur);
+    }
+
+    virtual Node* removeNode(Node * cur, cmp requestedKey){
+        if(cur == nullptr)
+            throw NoNodeExist();
+        if(ifIs(requestedKey,cur->data)){
+            if(cur->right == nullptr && cur->left == nullptr)
+            {
+                //delete cur;
+                cur = nullptr;
+                return cur;
+            }
+
+            else if (cur->right == nullptr && cur->left != nullptr)
+            {
+                cur = deleteLeftChild(cur);
+            }
+            else if (cur->left == nullptr && cur->right != nullptr)
+            {
+                cur =  deleteRightChild(cur);
+            }
+            else if (cur->left != nullptr && cur->right != nullptr)
+            {
+                Node* minOfRight = findLeftest(cur->right);
+                cur->data = minOfRight->data;
+                //cur->key = minOfRight->key;
+                cur->setRight( removeNode(cur->right,getKey(cur->data)));
+            }
+        }
+
+        else
+        {
+            if(ifSmaller(requestedKey,cur->data)) //if (requestedKey < (cur->data->getCmp()))
+                cur->setLeft(removeNode(cur->left, requestedKey));
+            else
+                cur->setRight(removeNode(cur->right, requestedKey));
+        }
+
+        cur->updateHeight();
+        return fixBalance(cur);
+    }
+
+    /*
     virtual Node * find(Node* cur,cmp * tmpKey){
         if(cur == nullptr)
             return nullptr;
@@ -282,8 +382,10 @@ private:
         return fixBalance(cur);
     }
 
-
+*/
 public:
+
+    /*
     virtual void add(type newData, cmp* newKey){
         Node* newNode = new Node(newData, newKey);
         head = addNode(head, newNode);
@@ -297,12 +399,27 @@ public:
         size--;
     }
 
+*/
+    virtual void add(type newData, cmp newKey){
+        Node* newNode = new Node(newData);
+        head = addNode(head, newNode);
+        size++;
 
+    }
+    virtual void remove(cmp requestedKey){
+        //postorder(head,2);
 
+        head = removeNode(head,requestedKey);
+        size--;
+    }
     ////////////////////////**********
+
+
 
 };
 
 
 
-#endif //תרגיל_רטוב_1_AVLTREE_H
+
+
+#endif //__1_AVLTREENEW_H

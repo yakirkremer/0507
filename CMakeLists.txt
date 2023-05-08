@@ -10,4 +10,4 @@ add_executable(__1
         maina1.cpp
         StreamingDBa1.cpp
         StreamingDBa1.h
-        wet1util.h main.cpp User.h Movie.h Comperator.h Group.h)
+        wet1util.h main.cpp User.h Movie.h Comperator.h Group.h Movies.h AvlTreeNew.h)

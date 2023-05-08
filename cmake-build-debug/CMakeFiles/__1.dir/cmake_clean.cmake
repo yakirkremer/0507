@@ -1,12 +1,14 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/__1.dir/StreamingDBa1.cpp.o"
-  "CMakeFiles/__1.dir/StreamingDBa1.cpp.o.d"
-  "CMakeFiles/__1.dir/main.cpp.o"
-  "CMakeFiles/__1.dir/main.cpp.o.d"
-  "CMakeFiles/__1.dir/maina1.cpp.o"
-  "CMakeFiles/__1.dir/maina1.cpp.o.d"
-  "__1"
+  "CMakeFiles/__1.dir/StreamingDBa1.cpp.obj"
+  "CMakeFiles/__1.dir/StreamingDBa1.cpp.obj.d"
+  "CMakeFiles/__1.dir/main.cpp.obj"
+  "CMakeFiles/__1.dir/main.cpp.obj.d"
+  "CMakeFiles/__1.dir/maina1.cpp.obj"
+  "CMakeFiles/__1.dir/maina1.cpp.obj.d"
+  "__1.exe"
+  "__1.exe.manifest"
   "__1.pdb"
+  "lib__1.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

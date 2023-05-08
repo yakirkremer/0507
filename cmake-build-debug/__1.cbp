@@ -8,113 +8,119 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/cmake-build-debug"/>
+				<Option working_dir="C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני\ נתונים\ 1/תרגילים\ רטובים/תרגיל\ רטוב\ 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני\ נתונים\ 1/תרגילים\ רטובים/תרגיל\ רטוב\ 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני\ נתונים\ 1/תרגילים\ רטובים/תרגיל\ רטוב\ 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני\ נתונים\ 1/תרגילים\ רטובים/תרגיל\ רטוב\ 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="__1">
-				<Option output="/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/cmake-build-debug/__1" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/cmake-build-debug"/>
+				<Option output="C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug/__1.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/."/>
-					<Add directory="/usr/include/c++/11"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
-					<Add directory="/usr/include/c++/11/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
+					<Add directory="C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/."/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני\ נתונים\ 1/תרגילים\ רטובים/תרגיל\ רטוב\ 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 __1"/>
-					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני\ נתונים\ 1/תרגילים\ רטובים/תרגיל\ רטוב\ 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני\ נתונים\ 1/תרגילים\ רטובים/תרגיל\ רטוב\ 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני\ נתונים\ 1/תרגילים\ רטובים/תרגיל\ רטוב\ 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug/Makefile&quot;  VERBOSE=1 __1"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="__1/fast">
-				<Option output="/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/cmake-build-debug/__1" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/cmake-build-debug"/>
+				<Option output="C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug/__1.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/."/>
-					<Add directory="/usr/include/c++/11"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
-					<Add directory="/usr/include/c++/11/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
+					<Add directory="C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/."/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני\ נתונים\ 1/תרגילים\ רטובים/תרגיל\ רטוב\ 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 __1/fast"/>
-					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני\ נתונים\ 1/תרגילים\ רטובים/תרגיל\ רטוב\ 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני\ נתונים\ 1/תרגילים\ רטובים/תרגיל\ רטוב\ 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני\ נתונים\ 1/תרגילים\ רטובים/תרגיל\ רטוב\ 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug/Makefile&quot;  VERBOSE=1 __1/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/cmake-build-debug"/>
+				<Option working_dir="C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני\ נתונים\ 1/תרגילים\ רטובים/תרגיל\ רטוב\ 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני\ נתונים\ 1/תרגילים\ רטובים/תרגיל\ רטוב\ 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני\ נתונים\ 1/תרגילים\ רטובים/תרגיל\ רטוב\ 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני\ נתונים\ 1/תרגילים\ רטובים/תרגיל\ רטוב\ 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/cmake-build-debug"/>
+				<Option working_dir="C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני\ נתונים\ 1/תרגילים\ רטובים/תרגיל\ רטוב\ 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני\ נתונים\ 1/תרגילים\ רטובים/תרגיל\ רטוב\ 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני\ נתונים\ 1/תרגילים\ רטובים/תרגיל\ רטוב\ 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j16 -f &quot;/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני\ נתונים\ 1/תרגילים\ רטובים/תרגיל\ רטוב\ 1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/AvlTree.h">
+		<Unit filename="C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/AvlTree.h">
 			<Option target="__1"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/Comperator.h">
+		<Unit filename="C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/AvlTreeNew.h">
 			<Option target="__1"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/Group.h">
+		<Unit filename="C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/Comperator.h">
 			<Option target="__1"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/Movie.h">
+		<Unit filename="C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/Group.h">
 			<Option target="__1"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/StreamingDBa1.cpp">
+		<Unit filename="C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/Movie.h">
 			<Option target="__1"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/StreamingDBa1.h">
+		<Unit filename="C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/Movies.h">
 			<Option target="__1"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/User.h">
+		<Unit filename="C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/StreamingDBa1.cpp">
 			<Option target="__1"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/main.cpp">
+		<Unit filename="C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/StreamingDBa1.h">
 			<Option target="__1"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/maina1.cpp">
+		<Unit filename="C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/User.h">
 			<Option target="__1"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/wet1util.h">
+		<Unit filename="C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/main.cpp">
 			<Option target="__1"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/yakir/Documents/TechnionHW/Matam/מבני נתונים 1/תרגילים רטובים/תרגיל רטוב 1/CMakeLists.txt">
+		<Unit filename="C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/maina1.cpp">
+			<Option target="__1"/>
+		</Unit>
+		<Unit filename="C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/wet1util.h">
+			<Option target="__1"/>
+		</Unit>
+		<Unit filename="C:/Users/yakir/Documents/Technion HW/Matam/HWS/0507/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

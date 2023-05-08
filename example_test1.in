@@ -1,0 +1,10 @@
+add_movie 1 1 1 False
+add_group 1
+add_user 1 False
+user_watch 1 1
+user_watch 1 1
+group_watch 1 1
+add_user_to_group 1 1
+
+
+get_num_views 1 1

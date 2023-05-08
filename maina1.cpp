@@ -13,14 +13,14 @@
 #include "StreamingDBa1.h"
 #include <string>
 #include <iostream>
-
+#include <fstream>
 using namespace std;
 
 void print(string cmd, StatusType res);
 void print(string cmd, output_t<int> res);
 void query_get_all_movies(string cmd, streaming_database *obj, Genre genre);
 
-int main1()
+int main()
 {
 	
     int d1, d2, d3, g1;
@@ -32,8 +32,13 @@ int main1()
 	
     // Execute all commands in file
 	string op;
-	while (cin >> op)
+    //ifstream cin("C:\\Users\\yakir\\Documents\\Technion HW\\Matam\\HWS\\0507\\example_test0.in");
+    ifstream cin("C:\\Users\\yakir\\Documents\\Technion HW\\Matam\\HWS\\0507\\example_test0.in");
+    ofstream cout("output.txt");
+
+    while (cin >> op)
     {
+
         if (!op.compare("add_movie")) {
             cin >> d1 >> g1 >> d2 >> b1;
             if (!b1.compare("True")) {
@@ -160,5 +165,5 @@ void query_get_all_movies(string cmd, streaming_database *obj, Genre genre)
 		    cout << out_mem[i] << endl;
 	    }
     }
-    delete[] out_mem;
+    //delete[] out_mem;
 }

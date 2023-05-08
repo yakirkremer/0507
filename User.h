@@ -7,6 +7,7 @@
 
 #include "Comperator.h"
 #include "Movie.h"
+
 #include <memory>;
 
 using namespace std;
@@ -14,60 +15,117 @@ using namespace std;
 
 class User {
 protected:
-    Comperator* cmp;
-    int * Id;
+    int  Id;
+    bool Vip;
     int groupID;
     int actionViews;
     int comedyViews;
     int dramaViews;
     int fantasyViews;
+    int * groupAction;
+    int* groupDrama;
+    int* groupFantasy;
+    int* groupComedy;
+    int* actionTmp;
+    int* comedyTmp;
+    int * dramaTmp;
+    int* fantasyTmp;
+
 
 public:
 
-    virtual ~User(){
-        delete cmp;
+    bool operator==(User other){
+        return this->getId() == other.getId();
     }
 
-    Comperator* getCmp(){
-        return cmp;
+    virtual ~User(){
     }
+
+
     int getActionViews() const {
-        return actionViews;
+        if(actionTmp== nullptr)
+            return actionViews;
+        return actionViews + *actionTmp;
+    }
+
+    void updateViews(int action,int comedy, int drama, int fantasy){
+        actionViews+=action;
+        comedyViews+=comedy;
+        dramaViews+=drama;
+        fantasyViews+=fantasy;
     }
 
     int getComedyViews() const {
-        return comedyViews;
+        if(comedyTmp== nullptr)
+            return comedyViews;
+        return comedyViews+*comedyTmp;
     }
 
     int getDramaViews() const {
-        return dramaViews;
+        if(dramaTmp== nullptr)
+            return dramaViews;
+        return dramaViews+*dramaTmp;
     }
 
     int getFantasyViews() const {
-        return fantasyViews;
+        if(fantasyTmp== nullptr)
+            return fantasyViews;
+        return fantasyViews+*fantasyTmp;
     }
     virtual void watch(shared_ptr<Movie> movie){
+        if(movie->isVip())
+            if(!isVip())
+                throw NotVip();
         movie->addViews();
         addViews(movie->getGenre());
     }
-    bool operator<(User other){
-        return this->cmp->getId() < other.cmp->getId();
+
+
+    User(int userID, bool isVip):Id(userID),Vip(isVip),groupID(0),actionViews(0),comedyViews(0),dramaViews(0)
+    ,fantasyViews(0),groupAction(nullptr),groupComedy(nullptr),groupDrama(nullptr),groupFantasy(nullptr)
+            ,actionTmp(nullptr),comedyTmp(nullptr),dramaTmp(nullptr),fantasyTmp(nullptr){
+        if(userID <= 0 )
+            throw NotValidId();
+    }
+    void setGroup(int ID,int* a,int* c, int* d, int* f,int* aT,int* cT, int* dT, int* fT){
+        groupID = ID;
+        groupAction = a;
+        groupDrama = d;
+        groupComedy = c;
+        groupFantasy = f;
+        actionTmp = aT;
+        comedyTmp = cT;
+        fantasyTmp = fT;
+        dramaTmp = dT;
+
     }
 
-    User(int userID, bool isVip):cmp(new Comperator(userID,isVip)),groupID(0),actionViews(0),comedyViews(0),dramaViews(0),fantasyViews(0), Id(new int(userID)){}
-    void setGroupID(int ID){groupID = ID;}
+    bool isVip()
+    {
+        return Vip;
+    }
+
     int getGroupID(){ return groupID;}
 
     int getViews(Genre num){
+        int action=0,drama=0,fantasy=0,comedy=0;
+        if(comedyTmp)
+             comedy = *comedyTmp;
+        if(dramaTmp)
+             drama = *dramaTmp;
+        if(actionTmp)
+             action = *actionTmp;
+        if(fantasyTmp)
+             fantasy = *fantasyTmp;
         switch (num) {
             case Genre::COMEDY:
-                return comedyViews;
+                return comedyViews+comedy;
             case Genre::DRAMA:
-                return dramaViews;
+                return dramaViews+drama;
             case Genre::ACTION:
-                return actionViews;
+                return actionViews+action;
             case Genre::FANTASY:
-                return fantasyViews;
+                return fantasyViews+fantasy;
             case Genre::NONE:
                 return comedyViews+dramaViews+actionViews+fantasyViews;
         }
@@ -76,26 +134,37 @@ public:
     int addViews(Genre num){
         switch (num) {
             case Genre::COMEDY:
+                if(groupID!=0)
+                    *groupComedy++;
                 comedyViews++;
                 break;
             case Genre::DRAMA:
+                if(groupID!=0)
+                    *groupDrama++;
                 dramaViews++;
                 break;
             case Genre::ACTION:
+                if(groupID!=0)
+                    *groupAction++;
                 actionViews++;
                 break;
             case Genre::FANTASY:
+                if(groupID!=0)
+                    *groupFantasy++;
                 fantasyViews++;
                 break;
         }
     }
 
-    int * getId(){
+    int  getId(){
         return Id;
     }
 
-    virtual bool Vip(){
-        return cmp->vip;
+
+
+
+    void rateMovie(shared_ptr<Movie> movie, int rating){
+        movie->rate(rating);
     }
 };
 
