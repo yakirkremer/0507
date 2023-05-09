@@ -16,23 +16,16 @@
 #define STREAMINGDBA1_H_
 
 #include "wet1util.h"
-//#include "Movie.h"
-//#include "User.h"
 #include "Movies.h"
 #include "Group.h"
 
 
 
 
-typedef Movies MoviesTree;//typedef  AvlTree<shared_ptr<Movie>,MovieComperator> MoviesTree;
-typedef MoviesByInt MoviesIds;//typedef  AvlTree<shared_ptr<Movie>,int> MoviesIds;
-typedef  AvlTreeNew<shared_ptr<User>,UserComperator> UsersTree;
-typedef  UsersByInt UsersIds;//AvlTree<shared_ptr<User>,int> UsersIds;
-
-
-//typedef  Group<UserPtr,int> UsersGroup;
-
-//typedef  AvlTree<shared_ptr<User>,int> Group;
+typedef Movies MoviesTree;
+typedef MoviesByInt MoviesIds;
+typedef  UsersByInt UsersIds;
+//typedef IntKeyAVlTree<UsersGroupPtr> Groups;
 class streaming_database {
 private:
 	//
@@ -52,34 +45,6 @@ private:
     MoviePtr mostRatedDrama;
     MoviePtr mostRatedFantasy;
 
-
-    bool validId(int Id){
-        if(Id<=0)
-            return false;
-        return true;
-    }
-
-
-
-    bool movieExist(int movieId){
-        //if(movies->nodeExist(new int(movieId)))
-        if(movies->nodeExist(movieId))
-            return true;
-        return false;
-    }
-
-    bool userExist(int userId){
-        if(users->nodeExist((userId)))
-            return true;
-        return false;
-    }
-
-    bool groupExist(int groupId){
-        if(groups->nodeExist( (groupId)))
-            return true;
-        return false;
-    }
-
     MoviePtr& getMostRated(Genre genre){
         if(getGenreTree(genre)->getSize() <= 0)
             throw NoNodeExist();
@@ -95,58 +60,63 @@ private:
         }
     }
 
-    StatusType addMovieToSorted(MoviePtr movie){
-        getGenreTree(movie->getGenre())->add(movie, movie->getCmp());
+    void addMovieToSorted(Movie* movie){
+        getGenreTree(movie->getGenre())->add(make_shared<Movie>(*movie));
         if(getMostRated(movie->getGenre()) == nullptr){
-            getMostRated(movie->getGenre()) = movie;
+            getMostRated(movie->getGenre()) = make_shared<Movie>(*movie);
         }
-        sortedByRating->add(movie, movie->getCmp());
+        sortedByRating->add(make_shared<Movie>(*movie));
         getMostRated(movie->getGenre()) = getGenreTree(movie->getGenre())->updateHighest();
-
     }
-    StatusType removeMovieFromSorted(MoviePtr movie){
+    void removeMovieFromSorted(Movie* movie){
         getGenreTree(movie->getGenre())->remove( movie->getCmp());
         sortedByRating->remove(movie->getCmp());
     }
 
-
-    template<class t, class c>
-    t getDataPtr(AvlTreeNew<t,c>* tree, c key){
-        t res = tree->getData(key);
-        return res;
-    }
-/*
-    MoviePtr getDataPtr(MoviesByInt* tree, int key){
-        MoviePtr res = tree->getData(key);
-        return res;
-    }
-
-    MoviePtr getDataPtr(Movies* tree, MovieComperator key){
-        MoviePtr res = tree->getData(key);
-        return res;
-    }
-
-    UserPtr getDataPtr(UsersByInt* tree, int key){
-        UserPtr res = tree->getData(key);
-        return res;
-    }
-    UsersGroup* getDataPtr(AvlTreeNew<UsersGroup*,int>* tree, int key){
-        UsersGroup* res = tree->getData(key);
-        return res;
+    //template<class type, class cmp>
+    /*type& getDataPtr(AvlTreeNew<type,cmp>* tree, cmp key){
+        try
+        {
+            type res = tree->getData(key);
+            return res;
+        }
+        catch (NoNodeExist){
+            throw NoNodeExist();
+        }
     }
 */
+    Movie* getMoviePtr(int key){
+        return movies->getData(key);
+    }
 
 
-    template<class type, class cmp, class avl>
-    StatusType addData(avl* tree, cmp key, type val){
-        tree->add(val,key);
+    Movie* getMoviePtr(MoviesTree* moviesTree ,MovieComperator key){
+        return moviesTree->getData(key);
+    }
+    User* getUserPtr(UsersByInt* usersByInt ,int key){
+        return usersByInt->getData(key);
+    }
+    User* getUserPtr(UsersGroup* usersByInt ,int key){
+        return usersByInt->getData(key);
+    }
+    UsersGroup* getGroupPtr(int key){
+        return groups->getData(key);
+    }
+
+    template<class type, class treePtr>
+    StatusType addData(treePtr tree, type* val){
+        tree->add(make_shared<type>(*val));
         return StatusType::SUCCESS;
     }
 
-    template<class type, class cmp>
-    StatusType removeData(AvlTreeNew<type, cmp>* tree, cmp key){
+    template<class type, class treePtr>
+    StatusType addData(treePtr tree, shared_ptr<type> val){
+        tree->add(val);
+        return StatusType::SUCCESS;
+    }
 
-
+    template<class treePtr, class cmp>
+    StatusType removeData(treePtr tree, cmp key){
         tree->remove(key);
         return StatusType::SUCCESS;
     }
@@ -166,19 +136,7 @@ private:
         }
     }
 
-
-
-
-
 public:
-    void printGroups(){
-        groups->postorder(groups->getHead(),2);
-    }
-
-    void printMovies(){
-        sortedByRating->postorder(sortedByRating->getHead(),2);
-    }
-
 
 	// <DO-NOT-MODIFY> {
 

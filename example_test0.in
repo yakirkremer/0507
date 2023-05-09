@@ -56,7 +56,6 @@ get_all_movies 3
 group_watch 26143 44059
 add_movie 23159 2 4 True
 user_watch 41050 44059
-add_user_to_group 41050 32937
 remove_movie 39489
 get_num_views 41050 4
 add_group 46171

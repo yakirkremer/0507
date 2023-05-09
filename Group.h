@@ -5,24 +5,11 @@
 #ifndef __1_GROUP_H
 #define __1_GROUP_H
 //#include "AvlTree.h"
-#include "AvlTreeNew.h"
-#include "User.h"
-template<class type, class cmp>
-class Group:public UsersByInt {
+#include "Movies.h"
+
+
+class UsersGroup: public UsersByInt {
     int  groupId;
-
-public:
-    Group(int groupId):UsersByInt(),groupId((groupId)){}
-    int  getId(){
-        return groupId;
-    }
-    bool operator<(Group<type, cmp>* other){
-        return  this->groupId < other->groupId;
-    }
-};
-
-
-class UsersGroup: public Group<shared_ptr<User>,int>{
     bool isVip;
     int* actionViews;
     int* dramaViews;
@@ -35,17 +22,32 @@ class UsersGroup: public Group<shared_ptr<User>,int>{
     int vipS;
 public:
 
-
-
-    bool operator==(UsersGroup other){
-        return this->getId() == other.getId();
+    int  getId(){
+        return groupId;
     }
 
-    UsersGroup(int groupId): Group(groupId),isVip(false), vipS(0),actionViews(new int(0))
+
+    bool operator==(shared_ptr<UsersGroup> other){
+        return this->getId() == other->getId();
+    }
+
+
+
+    UsersGroup(int groupId): groupId(groupId),isVip(false), vipS(0),actionViews(new int(0))
             ,comedyViews(new int(0)),fantasyViews(new int(0)),dramaViews(new int(0)),comedyTmp(new int(0))
             ,dramaTmp(new int(0)),actionTmp(new int(0)),fantasyTmp(new int(0)){
         if(groupId <= 0 )
             throw NotValidId();
+    }
+    virtual ~UsersGroup(){
+        delete actionViews;
+        delete dramaViews;
+        delete comedyViews;
+        delete fantasyViews;
+        delete actionTmp;
+        delete comedyTmp;
+        delete dramaTmp;
+        delete fantasyTmp;
     }
 
     void addVip(){
@@ -56,7 +58,7 @@ public:
     }
     void updateViewsForAllAux(Node* cur){
         if(cur!= nullptr) {
-            updateViews(cur->data);
+            updateViews(cur->data.get());
             updateViewsForAllAux(cur->right);
             updateViewsForAllAux(cur->left);
         }
@@ -86,13 +88,8 @@ public:
         (*fantasyViews)-=fantasy;
     }
 
-    void updateViews(shared_ptr<User> user){
+    void updateViews(User* user){
         user->updateViews(*actionTmp,*comedyTmp,*dramaTmp,*fantasyTmp);
-
-        //actionViews-= actionViews/size;
-        //comedyViews-=comedyViews/size;
-        //fantasyViews-=fantasyViews/size;
-        //dramaViews-=dramaViews/size;
     }
     void updateVipAux(Node * cur){
 
@@ -179,7 +176,7 @@ public:
                 return fantasyTmp;
         }
     }
-    void watch(shared_ptr<Movie> movie){
+    void watch(Movie* movie){
         if(movie->isVip())
             if(!vip())
                 throw NotVip();
@@ -207,36 +204,40 @@ public:
 };
 
 
-class Groups:public AvlTreeNew<UsersGroup*, int>{
-    int getKey(UsersGroup* group)const override{
-        return group->getId();
+
+typedef shared_ptr<UsersGroup> UsersGroupPtr;
+
+
+class Groups:public AvlTreeNew<UsersGroupPtr , int>{
+
+
+
+    int getKey(UsersGroupPtr data)const override{
+        return data->getId();
     }
 
-    bool ifSmaller( int a , int b)const override{
-        return a<b;
+    bool ifSmaller( UsersGroupPtr & data , int& b)const override{
+        return data->getId()<b;
+
     }
 
-    bool ifSmaller( UsersGroup* a , int b)const override{
-        return a->getId()<b;
-    }
-
-    bool ifSmaller( UsersGroup* a , UsersGroup* b)const override{
+    bool ifSmaller( UsersGroupPtr & a , UsersGroupPtr & b)const override{
         return a->getId() < b->getId();
     }
 
-    bool ifSmaller( int a , UsersGroup* b)const override{
-        return !(b->getId()<a);
-    }
-    bool ifIs( int a , int b)const override{
-        return a == b;
-    }
 
-    bool ifIs( UsersGroup* a , int b)const override{
+    bool ifIs( UsersGroupPtr & a , int& b)const override{
         return a->getId() == b;
     }
-    bool ifIs( int a , UsersGroup* b)const override{
-        return a == b->getId();
-    }
-};
 
+    bool ifIs( Node*  a , int& b)const override{
+        return a->data->getId() == b;
+    }
+
+public:
+    UsersGroup* getData(int key){
+        return (find(head,key))->data.get();
+    }
+
+};
 #endif //__1_GROUP_H

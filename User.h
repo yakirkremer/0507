@@ -38,6 +38,8 @@ public:
         return this->getId() == other.getId();
     }
 
+
+
     virtual ~User(){
     }
 
@@ -72,7 +74,7 @@ public:
             return fantasyViews;
         return fantasyViews+*fantasyTmp;
     }
-    virtual void watch(shared_ptr<Movie> movie){
+    virtual void watch(Movie* movie){
         if(movie->isVip())
             if(!isVip())
                 throw NotVip();
@@ -109,6 +111,10 @@ public:
 
     int getViews(Genre num){
         int action=0,drama=0,fantasy=0,comedy=0;
+        if(groupID != 0)
+            comedy = *comedyTmp, drama = *dramaTmp,action = *actionTmp,fantasy = *fantasyTmp;
+
+        /*
         if(comedyTmp)
              comedy = *comedyTmp;
         if(dramaTmp)
@@ -117,6 +123,7 @@ public:
              action = *actionTmp;
         if(fantasyTmp)
              fantasy = *fantasyTmp;
+             */
         switch (num) {
             case Genre::COMEDY:
                 return comedyViews+comedy;
@@ -163,7 +170,7 @@ public:
 
 
 
-    void rateMovie(shared_ptr<Movie> movie, int rating){
+    void rateMovie(Movie* movie, int rating){
         movie->rate(rating);
     }
 };

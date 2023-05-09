@@ -20,7 +20,6 @@ streaming_database* base = new streaming_database();
         base->add_movie(i,Genre::COMEDY,0, true);
     }
 
-    base->printMovies();
 
 
 
