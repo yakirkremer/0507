@@ -11,7 +11,7 @@
 #include <memory>;
 
 using namespace std;
-
+#define nullptr NULL;
 
 class User {
 protected:
@@ -33,6 +33,9 @@ protected:
 
 
 public:
+    int  getId(){
+        return Id;
+    }
 
     bool operator==(User other){
         return this->getId() == other.getId();
@@ -43,7 +46,7 @@ public:
 
 
     int getActionViews() const {
-        if(actionTmp== nullptr)
+        if(actionTmp== NULL)
             return actionViews;
         return actionViews + *actionTmp;
     }
@@ -56,19 +59,19 @@ public:
     }
 
     int getComedyViews() const {
-        if(comedyTmp== nullptr)
+        if(comedyTmp== NULL)
             return comedyViews;
         return comedyViews+*comedyTmp;
     }
 
     int getDramaViews() const {
-        if(dramaTmp== nullptr)
+        if(dramaTmp== NULL)
             return dramaViews;
         return dramaViews+*dramaTmp;
     }
 
     int getFantasyViews() const {
-        if(fantasyTmp== nullptr)
+        if(fantasyTmp== NULL)
             return fantasyViews;
         return fantasyViews+*fantasyTmp;
     }
@@ -156,9 +159,7 @@ public:
         }
     }
 
-    int  getId(){
-        return Id;
-    }
+
 
 
 

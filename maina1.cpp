@@ -150,7 +150,7 @@ void query_get_all_movies(string cmd, streaming_database *obj, Genre genre)
         ++to_alloc;
     }
     // Allocate if okay
-    int *out_mem = nullptr;
+    int *out_mem = NULL;
     if (count.status() == StatusType::SUCCESS)
     {
         out_mem = new int[to_alloc];

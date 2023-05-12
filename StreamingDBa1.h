@@ -14,8 +14,9 @@
 
 #ifndef STREAMINGDBA1_H_
 #define STREAMINGDBA1_H_
-
+#include <memory>
 #include "wet1util.h"
+using namespace std;
 //#include "Movie.h"
 //#include "User.h"
 #include "Movies.h"
